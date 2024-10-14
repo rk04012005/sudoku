@@ -1,0 +1,74 @@
+/* General styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400% 400%;
+  animation: rainbow 10s ease infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sudoku-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+h1 {
+  color: darkblue;
+}
+
+#sudoku-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 2px;
+  margin: 20px 0;
+  max-width: 400px;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: darkblue;
+  background-color: lightblue;
+  border: 2px solid darkblue;
+  box-sizing: border-box;
+  outline: none;
+  cursor: default;
+  user-select: none;
+}
+
+.cell:focus {
+  outline: none;
+  cursor: default;
+}
+
+/* Styling the bold borders for 3x3 blocks */
+.cell:nth-child(3n+1) {
+  border-left-width: 4px;
+}
+
+.cell:nth-child(-n+9) {
+  border-top-width: 4px;
+}
+
+.cell:nth-child(n+73) {
+  border-bottom-width: 4px;
+}
+
+.cell:nth-child(9n) {
+  border-right-width: 4px;
+}
